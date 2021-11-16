@@ -15,7 +15,7 @@ import Navbar from "./Navbar";
 function App() {
   return (
     <div className="main-app">
-      <Navbar />
+      
       {/* <Button />  */}
       <Container
         className="silly"
