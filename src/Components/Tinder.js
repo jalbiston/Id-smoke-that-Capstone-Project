@@ -4,7 +4,7 @@ import Navbar from "./Navbar";
 export default function Tinder() {
   return (
     <>
-      <Navbar />
+      
       <div className="tindy">
         <h1>Would You Smoke This?</h1>
 

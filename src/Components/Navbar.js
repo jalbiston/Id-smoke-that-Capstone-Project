@@ -8,10 +8,10 @@ export default function Navbar() {
       <header className="navbar">
         <div className="brand">MIN ELSKER DIE MICHAEL❤😘</div>
         <ul className="nav-links">
-          <Link to="/tinder" className="link">
+          {/* <Link to="/tinder" className="link">
             Tinder
           </Link>
-          <Link to="/" component={Dashboard} className="link">
+          <Link>
             Dashboard
           </Link>
           <Link to="/tinder" className="link">
@@ -19,7 +19,7 @@ export default function Navbar() {
           </Link>
           <Link to="/tinder" className="link">
             Tinder
-          </Link>
+          </Link> */}
         </ul>
       </header>
     </>

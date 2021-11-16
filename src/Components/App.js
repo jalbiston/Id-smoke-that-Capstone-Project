@@ -11,16 +11,17 @@ import ForgotPassword from "./ForgotPassword";
 import UpdateProfile from "./UpdateProfile";
 import Tinder from "./Tinder.js";
 import "../App.css";
-
+import Navbar from "./Navbar";
 function App() {
   return (
     <div className="main-app">
-      <Button /> 
+      <Navbar />
+      {/* <Button />  */}
       <Container
         className="silly"
         style={{ minHeight: "100vh", minWidth: "100vw", position: "relative" }}
       >
-        <div className="page" style={{}}>
+        <div className="page" >
           <Router>
             <AuthProvider>
               <Switch>
