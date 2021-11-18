@@ -11,9 +11,51 @@
   height: 65px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   
 }
 
+.title1 {
+  margin-left: auto;
+  font-family: 'Indie Flower', cursive;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  
+  width: 40%;
+  justify-content: center;
+}
+.allTogether {
+  display: flex;
+
+}
+
+form {
+  
+  display: flex;
+  flex-direction: column;
+  
+  font-family: 'Indie Flower', cursive;
+  
+}
+
+textarea {
+  min-height: 100px;
+  height: 200px;
+  
+}
+
+#submitRecipe:hover {
+  background: black;
+  color: whitesmoke
+}
+
+.brand img {
+  width: 50px;
+  height: 50px;
+}
 
 
 .main-app {

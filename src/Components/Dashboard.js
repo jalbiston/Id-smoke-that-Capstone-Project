@@ -46,6 +46,7 @@ export default function Dashboard() {
           </Button>
         </div>
       </div>
+      <div className="allTogether">
       <div className="liked-container">
         <div className="liked"> Liked Recipes:</div>
         <div className ="liked-container2"></div>
@@ -54,16 +55,23 @@ export default function Dashboard() {
         
         >Would you smoke that?</Link>
       </div>
-      
+      <div className="form">
       <form className="submitRecipe">
+      <h1>Would others smoke your recipe?  Submit it!</h1>
         <label for="recipeName">Recipe Name:</label>
         <input id="name" name="recipeName"/>
         <label for="authorName">Your Name:</label>
         <input id="author" name="authorName"/>
         <label for="ingredients">Ingredients Needed: </label>
         <input id="ingredients" name="ingredients"/>
+        <label for="recipeInput">What is the recipe, without your life story!</label>
+        <textarea id="recipe" name="recipeInput" rows="30" cols="50"></textarea>
+        <button type="submit" id="submitRecipe" value="submit">
+          Submit.  Would they smoke it?
+        </button>
       </form>
-      
+      </div>
+      </div>
     </>
   );
 }
