@@ -8,18 +8,13 @@ export default function Navbar() {
       <header className="navbar">
         <div className="brand">MIN ELSKER DIE MICHAEL❤😘</div>
         <ul className="nav-links">
-          {/* <Link to="/tinder" className="link">
-            Tinder
+          <Link to="/tinder" className="link">
+            Smoker Roulette
           </Link>
-          <Link>
+          <Link to="/" className="link">
             Dashboard
           </Link>
-          <Link to="/tinder" className="link">
-            Tinder
-          </Link>
-          <Link to="/tinder" className="link">
-            Tinder
-          </Link> */}
+          
         </ul>
       </header>
     </>

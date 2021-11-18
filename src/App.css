@@ -6,11 +6,15 @@
 
 .navbar {
   width: 100%;
-  background-color: lime;
+  background-color: black;
+  color: whitesmoke; 
   height: 65px;
   display: flex;
   align-items: center;
+  
 }
+
+
 
 .main-app {
   background-color: whitesmoke;
@@ -69,11 +73,11 @@
   align-items: center;
   margin-left: auto;
   gap: 1em;
-  color: black;
+  color: whitesmoke;
 }
 
 .link {
-  color: black;
+  color: whitesmoke;
 }
 
 .liked-container2{
@@ -132,3 +136,4 @@
   font-size: 20px;
   color: black;
 }
+

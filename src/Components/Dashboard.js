@@ -54,6 +54,16 @@ export default function Dashboard() {
         
         >Would you smoke that?</Link>
       </div>
+      
+      <form className="submitRecipe">
+        <label for="recipeName">Recipe Name:</label>
+        <input id="name" name="recipeName"/>
+        <label for="authorName">Your Name:</label>
+        <input id="author" name="authorName"/>
+        <label for="ingredients">Ingredients Needed: </label>
+        <input id="ingredients" name="ingredients"/>
+      </form>
+      
     </>
   );
 }
