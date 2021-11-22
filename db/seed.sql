@@ -58,7 +58,7 @@ VALUES
 INSERT INTO liked_recipes (user_id,recipe_id,liked)
 VALUES
   (2,5,'true'),
-  (2,1,'false'),
+  (2,1,'true'),
   (3,5,'false'),
   (1,3,'false'),
   (3,3,'true');

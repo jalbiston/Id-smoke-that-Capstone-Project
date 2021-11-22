@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import Dashboard from "./Dashboard";
 import Smokeimg from "./smoke.svg"
+import { Dropdown, DropdownButton } from "react-bootstrap"
 
 export default function Navbar() {
   return (
@@ -13,15 +14,16 @@ export default function Navbar() {
         </div>
         <div className="title1">
         <h1 className="title">Id Smoke that</h1>
+        
         </div>
         <ul className="nav-links">
-          <Link to="/tinder" className="link">
-            Smoker Roulette
-          </Link>
-          <Link to="/" className="link">
-            Dashboard
-          </Link>
-          
+        <DropdownButton id="dropdown-basic-button" title="Menu">
+          <Dropdown.Item href="#/action-1"><Link to="/update-profile" className="btn btn-primary m-3">
+            Update profile
+          </Link></Dropdown.Item>
+          <Dropdown.Item href="/tinder">Would You Smoke That?</Dropdown.Item>
+          <Dropdown.Item href="/">Home</Dropdown.Item>
+        </DropdownButton>
         </ul>
       </header>
     </>

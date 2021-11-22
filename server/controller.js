@@ -17,7 +17,7 @@ module.exports ={
     getAllRecipes: async (req, res) => {
         const db = req.app.get("db");
         const allRecipes = await db.get_recipes();
-      
+        
         res.status(200).send(allRecipes);
       },
 
@@ -32,15 +32,41 @@ module.exports ={
     },
 
     seeLikedRecipe: async (req, res) => {
-  
+        const db = req.app.get("db");
+        const { email } = req.body;
+        const [userId] = await db.get_id([email])
+        
+        const allLikedRecipes = await db.liked_recipes([userId.id])
+        
+        let recipes = []
+
+
+        for (let i = 0; i <allLikedRecipes.length; i++){
+            let [ recipe ] = await db.get_recipe_name(allLikedRecipes[i].recipe_id)
+            recipes.push(recipe)
+
+        }
+
+    
+        res.status(200).send(recipes)
     },
 
     deleteLikedRecipe:  async (req, res) => {
-        // This will allow user to delete previously liked recipes from the list
+        const db = req.app.get("db");
+        const { user_id, recipe_id } = req.body;
+        
+
+
+        const notWanted = await db.delete_liked([user_id, recipe_id])
+
+    
+       res.send(notWanted).status(200) 
+        // we will need to call getAllRecipes again in the front end after this one is fired off :) 
+
       },
     
     postNewRecipe: async (req, res) => {
-        // form that allows user to post own recipe to database
+        
       },
 
 
