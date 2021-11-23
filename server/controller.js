@@ -66,7 +66,18 @@ module.exports ={
       },
     
     postNewRecipe: async (req, res) => {
+      const db = req.app.get("db");
+      const { name, author, ingredients, instructions, image, user_id } = req.body
+
+      await db.new_recipe([name, author, ingredients, instructions, image, user_id])
+
+      res.status(200).send('recipe sent')
+
+      // const newRecipe = db.new_recipe([])
+      
         
+        
+
       },
 
 
