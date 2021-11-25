@@ -12,7 +12,13 @@ module.exports ={
         res.status(200).send("Congrats, it worked")
         
       },
-    
+    getId: async (req, res) => {
+      const db = req.app.get("db")
+      const {email} = req.body
+
+      const userId = await db.get_id([email])
+      res.send(userId).status(200)
+    },
     
     getAllRecipes: async (req, res) => {
         const db = req.app.get("db");

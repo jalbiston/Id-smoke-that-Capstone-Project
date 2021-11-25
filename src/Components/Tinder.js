@@ -1,9 +1,47 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Navbar from "./Navbar";
 import { Link } from "react-router-dom"
+import axios from "axios";
+import DisplayBox from "./DisplayBox";
+import { useAuth } from "../contexts/AuthContext";
 
 
-export default function Tinder() {
+
+export default function Tinder(props) {
+  // const [example, setExample] = useState("example")
+  const [recipes, setRecipes] = useState([])
+  const [userId, setUserId] = useState(0)
+  let [counter, setCounter] = useState(1) 
+  const { currentUser } = useAuth();
+
+  function getUserId () {
+    axios.get("/api/getid", {
+      email: currentUser.email
+    }).then((res) => {
+      setUserId(res.data)
+    })
+  }
+  function recipeTime () {
+    axios.get("/api/getrecipes").then((res) =>{
+      setRecipes(res.data)
+    })
+  }
+  useEffect(() => {
+    recipeTime()
+    getUserId()
+  }, [])
+  function handleRecipePush () {
+    
+    axios.post("/api/getrecipes", {
+      user_id: userId,
+      recipe_id: {},
+      liked: true
+    }).then(() =>{
+      recipes.splice()
+    })
+  }
+  
+  
   return (
     <>
       <Navbar />
@@ -12,24 +50,21 @@ export default function Tinder() {
 
         <div className="justinsbeaver">
           <button className="tinderyes"
-          // push recipe into like recipes
+          onClick
           
           >I'd Smoke That</button>
 
-          <div className="recipebox"
-          // axios.get recipes from database, shows random recipe
-          
-        //   axios.get('/api/getrecipes')
-        // .then((res)=> setRess(res.data))
-        // .catch((err) => {console.log(err)})
-          
-          ></div>
+          <div className="recipebox">
+            <DisplayBox recipes={ recipes } counter = {counter}/>
+          </div>
 
           <button className="tinderno"
-          // simply just moves on to the next recipe and does not put it in the users liked recipes
-          // once either of these buttons are pressed, a new recipe from the data base will be displayed
+          onClick={() => 
+          setCounter(counter +1)
           
-          >Ah hell nah</button>
+          }
+          
+          >Nah Ill Pass</button>
 
           
         </div>

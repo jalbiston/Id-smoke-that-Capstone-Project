@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import Dashboard from "./Dashboard";
 import Smokeimg from "./smoke.svg"
+import Logo from "./Logo.svg"
 import { Dropdown, DropdownButton } from "react-bootstrap"
 
 export default function Navbar() {
@@ -9,7 +10,7 @@ export default function Navbar() {
     <>
       <header className="navbar">
         <div className="brand">
-            <img  src={ Smokeimg } />
+            <img  src={ Logo } />
             
         </div>
         <div className="title1">

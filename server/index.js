@@ -15,7 +15,7 @@ app.post("/api/register", controller.addUser);
 // creating Tinder component routes
 app.get("/api/getrecipes", controller.getAllRecipes);
 app.post("/api/getrecipes", controller.addLikedRecipe)
-
+app.get("/api/getId", controller.getId)
 // creating Dashboard Route component
 app.get("/api/likedrecipes", controller.seeLikedRecipe)
 app.delete("/api/likedrecipes", controller.deleteLikedRecipe)
