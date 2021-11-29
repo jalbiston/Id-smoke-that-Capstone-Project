@@ -15,9 +15,9 @@ module.exports ={
     getId: async (req, res) => {
       const db = req.app.get("db")
       const {email} = req.body
-
-      const userId = await db.get_id([email])
-      res.send(userId).status(200)
+      console.log(email)
+      const [userId] = await db.get_id([email])
+      res.status(200).send(userId)
     },
     
     getAllRecipes: async (req, res) => {

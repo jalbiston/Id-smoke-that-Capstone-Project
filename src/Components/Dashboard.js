@@ -5,10 +5,26 @@ import { Link, useHistory } from "react-router-dom";
 import "../App.css";
 import Navbar from "./Navbar";
 
+
 export default function Dashboard() {
   const [error, setError] = useState("");
   const { currentUser, logout } = useAuth();
   const history = useHistory();
+
+// function handleForm (){
+//   e.preventDefault()
+//   axios.post("/api/addrecipe", {
+    
+//     name: 
+//     author: 
+//     ingredients: 
+//     instructions: 
+//     image: 
+//     user_id: 
+// } ).then ((res) => {
+//   console.log(res)
+// }).catch(err => console.log(err))
+// }
 
   async function handleLogout() {
     setError("");
@@ -21,6 +37,8 @@ export default function Dashboard() {
     }
   }
 //   console.log(currentUser);
+
+console.log(document.getElementById("authorName"))
   return (
     <>
       <Navbar />
@@ -59,7 +77,10 @@ export default function Dashboard() {
       <form className="submitRecipe">
       <h1>Would others smoke your recipe?  Submit it!</h1>
         <label for="recipeName">Recipe Name:</label>
-        <input id="name" name="recipeName"/>
+        <input id="name" name="recipeName"
+        
+             
+        />
         <label for="authorName">Your Name:</label>
         <input id="author" name="authorName"/>
         <label for="ingredients">Ingredients Needed: </label>
