@@ -17,7 +17,7 @@ app.get("/api/getrecipes", controller.getAllRecipes);
 app.post("/api/getrecipes", controller.addLikedRecipe)
 app.post("/api/getId", controller.getId)
 // creating Dashboard Route component
-app.get("/api/likedrecipes", controller.seeLikedRecipe)
+app.post("/api/likedrecipes", controller.seeLikedRecipe)
 app.delete("/api/likedrecipes", controller.deleteLikedRecipe)
 app.post("/api/addrecipe", controller.postNewRecipe)
 

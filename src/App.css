@@ -27,7 +27,7 @@
   font-family: 'Indie Flower', cursive;
 }
 
-.form {
+.form-container {
   display: flex;
   align-items: center;
   
@@ -39,7 +39,7 @@
 
 }
 
-form {
+.form {
   
   display: flex;
   flex-direction: column;
@@ -96,6 +96,9 @@ textarea {
   display: flex;
   justify-content: center;
   text-decoration: none;
+  position: absolute;
+  top: 800px;
+  left:10px;
 }
 
 .profile-container {
@@ -108,8 +111,9 @@ textarea {
 
 .liked-container {
   border: 1px solid black;
+  overflow-y: scroll;
   width: 35vw;
-  height: calc(100vh - 65px);
+  height: 700px;
   display: flex;
   justify-content: left;
   flex-direction: column;

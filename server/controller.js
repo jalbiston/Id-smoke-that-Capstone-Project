@@ -60,7 +60,7 @@ module.exports ={
     deleteLikedRecipe:  async (req, res) => {
         const db = req.app.get("db");
         const { user_id, recipe_id } = req.body;
-        
+        console.log(req)
 
 
         const notWanted = await db.delete_liked([user_id, recipe_id])

@@ -1,5 +1,4 @@
 import React from "react";
-import Button from "./Button";
 import Signup from "./Signup";
 import { Container } from "react-bootstrap";
 import { AuthProvider } from "../contexts/AuthContext";
@@ -11,12 +10,12 @@ import ForgotPassword from "./ForgotPassword";
 import UpdateProfile from "./UpdateProfile";
 import Tinder from "./Tinder.js";
 import "../App.css";
-import Navbar from "./Navbar";
+
 function App() {
   return (
     <div className="main-app">
       
-      {/* <Button />  */}
+      
       <Container
         className="silly"
         style={{ minHeight: "100vh", minWidth: "100vw", position: "relative" }}

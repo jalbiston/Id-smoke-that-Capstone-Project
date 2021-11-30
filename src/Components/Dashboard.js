@@ -1,30 +1,71 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Card, Button, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import "../App.css";
 import Navbar from "./Navbar";
+import axios from "axios"
 
 
 export default function Dashboard() {
   const [error, setError] = useState("");
   const { currentUser, logout } = useAuth();
   const history = useHistory();
+  const [recipeName, setRecipeName] = useState('')
+  const [author, setAuthor] = useState('')
+  const [ingredients, setIngredients] = useState('')
+  const [recipeInput, setRecipeInput] = useState('')
+  const [userId, setUserId] = useState(0)
+  const [array, setArray] = useState([])
+  const [recipeId, setRecipeId] = useState(0)
 
-// function handleForm (){
-//   e.preventDefault()
-//   axios.post("/api/addrecipe", {
+  function reset () {
+    setRecipeName('')
+    setAuthor('')
+    setIngredients('')
+    setRecipeInput('')
+  }
+  
+function getLikedRecipes() {
+  axios.post("/api/likedrecipes", {email:currentUser.email
+  }).then((res) => {
+    setArray(res.data)
+  }).catch(err => console.log(err))
+}
+  function getUserId() {
+    axios
+      .post("/api/getId", {
+        email: currentUser.email,
+      })
+      .then((res) => {
+        setUserId(res.data.id);
+      });
+  }
+  useEffect(() => {
+    getLikedRecipes()
+    getUserId()
     
-//     name: 
-//     author: 
-//     ingredients: 
-//     instructions: 
-//     image: 
-//     user_id: 
-// } ).then ((res) => {
-//   console.log(res)
-// }).catch(err => console.log(err))
-// }
+  },[])
+
+
+function handleForm (){
+  
+  console.log("we are in handleform")
+  console.log(recipeName, author, ingredients, recipeInput)
+  axios.post("/api/addrecipe", {
+    
+    name: recipeName,
+    author: author,
+    ingredients: ingredients,
+    instructions: recipeInput,
+    image: '',
+    user_id: userId
+} ).then ((res) => {
+  console.log(res)
+}).catch(err => console.log(err))
+reset()
+alert("Recipe Submitted")
+}
 
   async function handleLogout() {
     setError("");
@@ -37,8 +78,19 @@ export default function Dashboard() {
     }
   }
 //   console.log(currentUser);
+function deleteIt (id) {
+  console.log(recipeId)
+  axios.delete("/api/likedrecipes", {data:{user_id: userId, recipe_id: id}})
+  .then((res) => {
+    window.location.reload()
+    console.log(res)
+  }).catch(err => console.log(err))
+}
 
-console.log(document.getElementById("authorName"))
+
+
+console.log(array, "dashboard")
+
   return (
     <>
       <Navbar />
@@ -67,30 +119,61 @@ console.log(document.getElementById("authorName"))
       <div className="allTogether">
       <div className="liked-container">
         <div className="liked"> Liked Recipes:</div>
-        <div className ="liked-container2"></div>
-        <Link to = "/Tinder" className="smokebtn"
+        <div className ="liked-container2">
+          {array.map((obj) => (
+                 <div key ={obj.id}>
+                 <h1> {obj.name}</h1>
+                 <h2>{obj.ingredients}</h2>
+                 <p>{obj.instructions}</p>
+                 <button onClick={() => {
+                   setRecipeId(obj.id)
+                   deleteIt(obj.id)
+                 }}
+                 
+                 >Delete Liked</button>
+             </div>
+            ))}
+        </div>
+        
+      </div>
+      <Link to = "/Tinder" className="smokebtn"
         
         
         >Would you smoke that?</Link>
-      </div>
-      <div className="form">
-      <form className="submitRecipe">
+        
+      <div className="form-container">
+      <div className="submitRecipe form" 
+      
+      // would I do onSubmit={handleForm} ???
+
+      >
       <h1>Would others smoke your recipe?  Submit it!</h1>
         <label for="recipeName">Recipe Name:</label>
-        <input id="name" name="recipeName"
-        
+        <input id="name" name="recipeName" value={recipeName}
+        onChange={(e) => setRecipeName(e.target.value)}
              
         />
         <label for="authorName">Your Name:</label>
-        <input id="author" name="authorName"/>
+        <input id="author" name="authorName" value={author}
+        onChange={(e) => setAuthor(e.target.value)}
+        
+        
+        />
         <label for="ingredients">Ingredients Needed: </label>
-        <input id="ingredients" name="ingredients"/>
+        <input id="ingredients" name="ingredients" value ={ingredients}
+        onChange={(e) => setIngredients(e.target.value)}
+        
+        />
         <label for="recipeInput">What is the recipe, without your life story!</label>
-        <textarea id="recipe" name="recipeInput" rows="30" cols="50"></textarea>
-        <button type="submit" id="submitRecipe" value="submit">
+        <textarea id="recipe" name="recipeInput" rows="30" cols="50" value={recipeInput}
+        onChange={(e) => setRecipeInput(e.target.value)}
+        
+        
+        ></textarea>
+        <button onClick={handleForm} id="submitRecipe" value="submit">
           Submit.  Would they smoke it?
         </button>
-      </form>
+      </div>
       </div>
       </div>
     </>
