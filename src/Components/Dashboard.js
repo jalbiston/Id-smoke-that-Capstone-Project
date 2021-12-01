@@ -122,10 +122,10 @@ console.log(array, "dashboard")
         <div className ="liked-container2">
           {array.map((obj) => (
                  <div key ={obj.id}>
-                 <h1> {obj.name}</h1>
-                 <h2>{obj.ingredients}</h2>
+                 <h1 className="brunoDick"> {obj.name}</h1>
+                 <h3 className="justinChinch">{obj.ingredients}</h3>
                  <p>{obj.instructions}</p>
-                 <button onClick={() => {
+                 <button className="deleteBtn"  onClick={() => {
                    setRecipeId(obj.id)
                    deleteIt(obj.id)
                  }}

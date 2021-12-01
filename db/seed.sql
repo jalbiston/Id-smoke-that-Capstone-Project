@@ -48,11 +48,11 @@ VALUES
 
   INSERT INTO recipes (name,author,ingredients,instructions,image,user_id)
 VALUES
-  ('Ivory Payne','Jesse Ballard','Nulla tincidunt, neque','id, mollis nec,','dapibus id, blandit at, nisi. Cum sociis natoque penatibus et',2),
-  ('Nolan Steele','Coby Norris','magna. Praesent interdum ligula eu enim.','sit amet ultricies sem magna nec quam. Curabitur vel','leo. Cras vehicula aliquet libero. Integer in magna. Phasellus dolor',2),
-  ('Claudia Boyle','Pearl Gill','lorem ipsum sodales purus, in','varius ultrices, mauris ipsum porta elit, a feugiat tellus','mauris. Integer sem elit, pharetra ut, pharetra sed, hendrerit a,',1),
-  ('Valentine Roth','Jessamine Pratt','vel nisl. Quisque fringilla euismod enim. Etiam gravida','feugiat non,','et magnis dis parturient montes, nascetur ridiculus mus. Proin vel',3),
-  ('Lyle Hughes','Beau Marks','adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus.','in, hendrerit consectetuer, cursus et, magna.','cursus purus. Nullam scelerisque neque sed sem egestas blandit. Nam',1);
+  ('Brisket','Jesse Ballard','12 pound brisket, salt and pepper','Trim Brisket. Sprinkle with Salt and Pepper all over brisket. Cook at 225. Spray with beef stock every 40 minutes. wrap when Internal temperature is 140, cook until IT is 165','dapibus id, blandit at, nisi. Cum sociis natoque penatibus et',2),
+  ('Pulled Pork','Coby Norris','10 pound bone in pork butt, pork seasoning, apple juice','season with desired pork seasoning. cook at 225 until IT is 205, wrap when IT is 160. Spray with apple juice every 30 minutes after two hours of initial cook time ','leo. Cras vehicula aliquet libero. Integer in magna. Phasellus dolor',2),
+  ('Pearls Smoked Burgers','Pearl Gill','1 i/b ground beef, seasoning','Season Burgers to taste.  Set smoker to 225. Smoke Burgers for one to two hours, depending on smoke flavor desire. Then Sear burgers on seperate grill, or turn smoker up to 500 degrees and sear each side for 2 minutes','mauris. Integer sem elit, pharetra ut, pharetra sed, hendrerit a,',1),
+  ('Sexy Smoked Meatballs','Jessamine Pratt','1 i/b of ground beef, Meat Church Honey Hog seasoning, Shredded Mozarella, Hoagie Buns','Roll ground beef into balls.  Apply Honey Hog seasoning.  Smoke balls for one hour at 225, or longer depending on desired smoke flavor. Take balsl off, sear in frying pan with marinara Sauce.  Sprinkle with Mozzarella cheese on a bun.  Enjoy!','et magnis dis parturient montes, nascetur ridiculus mus. Proin vel',3),
+  ('Smokey Pumpkin Seeds','Beau Marks','Pumpkin Seeds, Soy Sauce','Season Seeds in the Soy Sauce. Smoke on the smoker at 180 for 3 hours.','cursus purus. Nullam scelerisque neque sed sem egestas blandit. Nam',1);
 
 
 INSERT INTO liked_recipes (user_id,recipe_id,liked)

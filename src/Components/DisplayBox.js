@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react'
+import "../App.css";
 import "../DisplayBox.css"
 
 export default function DisplayBox(props) {
@@ -19,8 +20,8 @@ export default function DisplayBox(props) {
                 .filter(item => item.id === props.counter) 
                 .map(item =>  
                 <div key={item.id}> 
-                    <h1>{item.name}</h1>
-                    <h2>{item.author}</h2>
+                    <h1 className= "brunoDick">{item.name}</h1>
+                    <h2 className= "justinChinch">{item.author}</h2>
                     <p>{item.ingredients}</p>
                     <p>{item.instructions}</p>
                     {/* <p>image</p> */}

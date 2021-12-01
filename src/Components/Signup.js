@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react'
 import { Form, Button, Card, Alert } from 'react-bootstrap'
 import { useAuth } from '../contexts/AuthContext'
 import { Link, useHistory } from 'react-router-dom'
+import axios from "axios"
 
 export default function Signup() {
     const emailRef =useRef()
@@ -11,6 +12,12 @@ export default function Signup() {
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     const history = useHistory()
+
+    async function  handleLogin() {
+        await axios.post("/api/register", {email: emailRef.current.value, password: passwordRef.current.value})
+                .then((res) =>{console.log(res)
+                }).catch((err) => {console.log(err)})
+    }
 
    async function handleSubmit(e) {
         e.preventDefault()
@@ -23,6 +30,7 @@ export default function Signup() {
         try{
             setError('')
             setLoading(true)
+            handleLogin()
             await signup(emailRef.current.value, passwordRef.current.value)
             history.push('/')
         } catch {

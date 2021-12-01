@@ -10,7 +10,7 @@ export default function Navbar() {
     <>
       <header className="navbar">
         <div className="brand">
-            <img  src={ Logo } />
+            <img className="img" src={ Logo } />
             
         </div>
         <div className="title1">
